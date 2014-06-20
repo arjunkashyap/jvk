@@ -11,8 +11,7 @@ open(IN,"jvk.xml") or die "can't open jvk.xml\n";
 
 my $dbh=DBI->connect("DBI:mysql:database=$db;host=$host","$usr","$pwd");
 
-$sth11=$dbh->prepare("CREATE TABLE author(authorname varchar(400),
-authid int(6) auto_increment,  primary key(authid))auto_increment=10001 ENGINE=MyISAM;");
+$sth11=$dbh->prepare("CREATE TABLE feature(feat_name varchar(200), featid int(6) auto_increment, primary key(featid))auto_increment=10001 ENGINE=MyISAM;");
 $sth11->execute();
 $sth11->finish(); 
 
@@ -20,10 +19,10 @@ $line = <IN>;
 
 while($line)
 {
-	if($line =~ /<author type=".*">(.*)<\/author>/)
+	if($line =~ /<feature>(.*)<\/feature>/)
 	{
-		$authorname = $1;
-		insert_authors($authorname);
+		$feat_name = $1;
+		insert_feature($feat_name);		
 	}
 	$line = <IN>;
 }
@@ -31,19 +30,20 @@ while($line)
 close(IN);
 $dbh->disconnect();
 
-sub insert_authors()
-{
-	my($authorname) = @_;
 
-	$authorname =~ s/'/\\'/g;
+sub insert_feature()
+{
+	my($feat_name) = @_;
+
+	$feat_name =~ s/'/\\'/g;
 	
 	my($sth,$ref,$sth1);
-	$sth = $dbh->prepare("select authid from author where authorname='$authorname'");
+	$sth = $dbh->prepare("select featid from feature where feat_name='$feat_name'");
 	$sth->execute();
 	$ref=$sth->fetchrow_hashref();
 	if($sth->rows()==0)
 	{
-		$sth1=$dbh->prepare("insert into author values('$authorname',null)");
+		$sth1=$dbh->prepare("insert into feature values('$feat_name',null)");
 		$sth1->execute();
 		$sth1->finish();
 	}

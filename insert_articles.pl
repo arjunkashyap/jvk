@@ -8,7 +8,7 @@ $pwd = $ARGV[3];
 use DBI();
 @ids=();
 
-open(IN,"res.xml") or die "can't open res.xml\n";
+open(IN,"jvk.xml") or die "can't open jvk.xml\n";
 
 my $dbh=DBI->connect("DBI:mysql:database=$db;host=$host","$usr","$pwd");
 
@@ -23,15 +23,12 @@ page_end varchar(5),
 volume varchar(3),
 issue varchar(5),
 year int(4), 
-month varchar(2),
-abstract varchar(2000),
-visited  int(10),
+month varchar(20),
 titleid varchar(30), primary key(titleid)) ENGINE=MyISAM");
 $sth11->execute();
 $sth11->finish(); 
 
 $line = <IN>;
-$abstract = "";
 
 while($line)
 {
@@ -46,7 +43,7 @@ while($line)
 		$month = $2;
 		$year = $3;
 		$count = 0;
-		$prev_pages = "";		
+		$prev_pages = "";
 	}	
 	elsif($line =~ /<title>(.*)<\/title>/)
 	{
@@ -73,14 +70,13 @@ while($line)
 		}
 		$prev_pages = $pages;		
 	}	
-	elsif($line =~ /<author isfellow="(.*)" lname="(.*)" fname="(.*)">(.*)<\/author>/)
+	elsif($line =~ /<author type="(.*)">(.*)<\/author>/)
 	{
-		$lname = $2;
-		$fname = $3;
-		$isfellow = $1;
-		$authorname = $4;
-		$authids = $authids . ";" . get_authid($fname,$lname,$authorname,$isfellow);
-		$author_name = $author_name . ";" .$authorname;
+		$type = $1;
+		$authorname = $2;
+
+		$authids = $authids . ";" . get_authid($authorname);
+		$author_name = $author_name . ";" .$authorname . "|" . $type;
 	}
 	elsif($line =~ /<allauthors\/>/)
 	{
@@ -91,7 +87,7 @@ while($line)
 	elsif($line =~ /<\/entry>/)
 	{
 
-		insert_article($title,$authids,$author_name,$featid,$page,$page_end,$volume,$issue,$year,$month,$abstract,$id);
+		insert_article($title,$authids,$author_name,$featid,$page,$page_end,$volume,$issue,$year,$month,$id);
 		$authids = "";
 		$featid = "";
 		$author_name = "";
@@ -105,7 +101,7 @@ $dbh->disconnect();
 
 sub insert_article()
 {
-	my($title,$authids,$author_name,$featid,$page,$page_end,$volume,$issue,$year,$month,$abstract,$id) = @_;
+	my($title,$authids,$author_name,$featid,$page,$page_end,$volume,$issue,$year,$month,$id) = @_;
 	my($sth1);
 
 	$title =~ s/'/\\'/g;
@@ -113,8 +109,7 @@ sub insert_article()
 	$author_name =~ s/^;//;
 	$author_name =~ s/'/\\'/g;
 	
-	$sth1=$dbh->prepare("insert into article values('$title','$authids','$author_name','$featid','$page','$page_end',
-		'$volume','$issue','$year','$month','$abstract','0','$id')");
+	$sth1=$dbh->prepare("insert into article values('$title','$authids','$author_name','$featid','$page','$page_end','$volume','$issue','$year','$month','$id')");
 
 	$sth1->execute();
 	$sth1->finish();
@@ -122,15 +117,12 @@ sub insert_article()
 
 sub get_authid()
 {
-	my($fname,$lname,$authorname,$isfellow) = @_;
+	my($authorname) = @_;
 	my($sth,$ref,$authid);
 
-	$fname =~ s/'/\\'/g;
-	$lname =~ s/'/\\'/g;
 	$authorname =~ s/'/\\'/g;
 	
-	$sth=$dbh->prepare("select authid from author where authorname='$authorname' and 
-	fname='$fname' and lname='$lname' and isfellow='$isfellow'");
+	$sth=$dbh->prepare("select authid from author where authorname='$authorname'");
 	$sth->execute();
 			
 	my $ref = $sth->fetchrow_hashref();

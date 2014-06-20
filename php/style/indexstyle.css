@@ -1,0 +1,575 @@
+@font-face {
+  font-family: 'Siddhantaa';
+  src: url('siddhanta.ttf');
+}
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('droidsans.woff') format('woff');
+}
+@font-face {
+  font-family: 'Droid Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: url('droidserif.woff') format('woff');
+}
+@font-face {
+  font-family: 'Julius Sans One';
+  font-style: normal;
+  font-weight: 400;
+  src: url(julius.woff) format('woff');
+}
+html, body {
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: 1.5;
+	margin: 0;
+	font-family: sans-serif;
+	background-image:url('../images/pattern2.jpg');
+	font-family: 'Droid Sans', sans-serif;
+	background-repeat:repeat;
+	font-family: 'Droid Sans', sans-serif;
+	color: #3D3D3D;
+}
+.top_page {
+	width: 100%;
+	height: 0.6em;
+	background-color: #DE5A49;
+}
+.page {
+	width: 985px;
+	margin: 1.25em auto 0em auto;
+	background-image:url('../images/pattern4.jpg');
+/*
+	box-shadow: 0px 0px 3px #BBBBBB;
+*/
+	box-shadow:rgba(0,0,0,.3) 0 1px 3px;
+	border-radius: 10px;
+	min-height: 60em;
+}
+.page_holder{
+	float: left;	
+}
+.header_top{
+	min-height: 5em;
+	float: left;
+	width: 100%;
+	clear: both;
+}
+.header_top .title_left{
+	font-family: 'Siddhantaa';
+	margin: 1.25em 0 0 0em;
+	padding: 0em 0 0em 1em;
+	font-size: 2em;
+	color: #DE5A49;
+	width: 30%;
+	line-height: 1;
+}
+.header_top .subtitle_left{
+	font-family: 'Siddhantaa';
+	font-size: 0.5em;
+	color: #7A7A7A;
+}
+.header_top .title_right{
+	font-family: 'Julius Sans One', sans-serif;
+	margin: 1.4em 0 0 0;
+	padding: 0em 0em 0em 0em;
+	font-size: 1.8em;
+	letter-spacing: 1px;
+	color: #DE5A49;
+	width: 45%;
+	text-align: right;
+	float: right;
+	line-height: 1;
+}
+.header_top .subtitle_right{
+	font-size: 0.4em;
+	color: #1A1A1A;
+}
+.header_top .subtitle a{
+	color: #1A1A1A;
+	text-decoration:none;
+}
+.header_top .subtitle a:HOVER{
+	color: #1A1A1A;
+	text-decoration:underline;
+}
+.header_top .logo{
+	float: right;
+	margin: 0em 0.75em 1em 0em;
+}
+#headnav{
+	font-family: 'Julius Sans One', sans-serif;
+	font-size: 0.65em;	
+	padding: 1em 1em 0em 1em;
+	margin: -1.5em 10em 0 0;
+	float: right;
+	background-color: #FFFFFF;
+	border-radius: 10px 10px 0px 0px;
+	box-shadow: 0px -2px 2px #BBBBBB;
+	border-bottom: 1px solid #FAFAFA;
+}
+#headnav li{
+	display: inline;
+	margin: 0.3em 0.5em 0.3em 0.5em;
+}
+#headnav li a{
+	color: #DE5A49;
+	text-decoration: none;
+	font-weight: bold;
+}
+#headnav li a:HOVER{
+	color: #DE5A49;
+	text-decoration: underline;
+}
+.navbar{
+	min-height: 4em;
+	width: 55%;
+	float: left;
+	margin: 0em 0em 0em 2em;
+}
+nav {
+	font-family: 'Julius Sans One', sans-serif;
+	float: left;
+	z-index: 50;
+	border-bottom: 1px solid #DE5A49;
+	font-size: 0.9em;
+	width: 100%;
+}
+.menu{
+	margin: 0 1em 0 0em;
+}
+.menu li {
+	float: left;
+	position: relative;
+}
+.menu li a{
+	color: #1A1A1A;
+	display: block;
+	padding: 6px 12px;
+	margin: 0px 8px;
+	vertical-align: middle;
+	text-decoration: none;
+}
+.menu li a:hover, .menu li a.active{
+	color: #DE5A49;
+}
+
+/* Dropdown styles */
+
+.menu ul {
+	position: absolute;
+	left: -9999px;
+	font-size: 0.8em;
+	list-style: none;
+	border-top: 1px solid #DE5A49;
+	background-color: #FFFFFF;
+	padding: 0.5em 0 0.5em 0;
+	border-radius: 0px 0px 0px 0px;
+	box-shadow: 0px 2px 2px #777777;
+	background-image:url('../images/pattern4.jpg');
+	opacity: 0.98;
+}
+.menu ul li {
+	float: none;
+}
+.menu ul a {
+	white-space: nowrap;
+}
+/* Displays the dropdown on hover and moves back into position */
+.menu li:hover ul {
+	left: 10px;
+}
+/* Persistant Hover State */
+.menu li a:hover {
+	color: #DE5A49;
+}
+.menu li:hover ul a {
+	background: none;
+	color: #222222;
+}
+.menu li:hover ul li a:hover {
+	color: #DE5A49;
+}
+.archive_menu
+{
+	font-family: 'Siddhantaa';
+	float: right;
+	margin-right: 4em;
+	width:10em;
+	font-size: 0.9em;
+}
+#archive_nav li
+{
+	margin: 0 0 0em 2em;
+	text-align:center;
+	list-style-type: none;
+	border-bottom: 1px solid #DE5A49;
+	padding: 0.75em 0 0.75em 0;
+}
+#archive_nav li a {
+    text-decoration: none;
+    color: #222222;
+}
+#archive_nav li a.active, #archive_nav li a:hover {
+	color: #DE5A49;
+}
+.archive_search {
+	margin: 2em 0em 0em 0em;
+	height: 38em;
+	width: 400px;	
+	font-size: 0.9em;
+}
+.archive_search table{
+	width: 300px;
+	margin-left: 2em;
+}
+.archive_search table .left{
+	width: 67px;
+	height: 40px;
+	text-align: right;
+	padding: 0.25em 1em 0.25em 0;
+	vertical-align: middle;
+}
+.archive_search table .right{
+	width: 180px;
+	text-align: left;
+	vertical-align: middle;
+	padding: 0.25em 0 0.25em 1em;
+	font-size: 0.9em;
+}
+.clearfix {
+	clear: both;
+}
+.textbody{
+	font-family: 'Siddhantaa';
+	width: 740px;
+	min-height: 500px;
+	margin: 0 0 0 2em;
+	color: #444444;
+	line-height: 2;
+	padding-bottom: 3em;
+}
+.textbody .archive_heading{
+	color: #DE5A49;
+	border-bottom: 3px solid #DE5A49;
+	padding-left: 1em;
+	width: 50%;
+}
+.textbody .archive_list{
+	font-size: 0.9em;
+	margin: 2em 0 0em 2em;
+}
+.textbody .archive_list li{
+	list-style-type: disc;
+	margin: 1.25em 0 1.25em 1em;
+}
+.titlespan{
+	
+}
+.titlespan a{
+	color: #444444;
+	text-decoration: none;
+}
+.titlespan a:HOVER{
+	text-decoration: underline;
+}
+.authorspan{
+	color: #DE5A49;
+}
+.authorspan a{
+	color: #DE5A49;
+	text-decoration: none;
+}
+.authorspan a:HOVER{
+	text-decoration: underline;
+}
+.yearspan{
+	color: #777777;
+}
+.yearspan a{
+	color: #777777;
+	text-decoration: none;
+}
+.yearspan a:HOVER{
+	text-decoration: underline;
+}
+.issuespan{
+	color: #444444;
+}
+.issuespan a{
+	color: #444444;
+	text-decoration: none;
+}
+.issuespan a:HOVER{
+	text-decoration: underline;
+}
+.footer{
+	text-align: center;
+	color: #DE5A49;
+	padding: 1em;
+	clear: both;
+}
+.itl{
+	font-style: italic;
+	font-weight: normal;
+}
+.bld{
+	font-weight: bold;
+}
+.sml{
+	font-size: 0.9em;
+	margin: 0 0 0 0.5em;
+}
+.decimal li{
+	list-style-type: decimal;
+	margin: 0 0 0 2em;
+}
+.dot li{
+	list-style-type: disc;
+	margin: 0 0 0 2em;
+}
+.space_left{
+	margin-left: 2em;
+}
+.alphabet {
+	font-family: 'Siddhantaa';
+	width: 99%;
+	text-align: center;
+	margin-top: 1em;
+}
+.alphabet .letter {
+	color: #222222;
+	padding: 0 0.5em 0 0;
+}
+.alphabet .letter a{
+	font-size: 0.9em;
+	color: #222222;
+	text-decoration:none;
+}
+.alphabet .letter a:Hover{
+	color: #DE5A49;
+	text-decoration: underline;
+}
+.archive_volume {
+	min-height: 45em;
+	font-size: 0.9em;
+	margin-top: 2em;
+}
+.col1{
+	width: 23%;
+	float: left;
+	text-align: center;
+	border-right: 1px solid #DE5A49;
+}
+.col2{
+	width: 23%;
+	float: left;
+	text-align: center;
+	border-right: 1px solid #DE5A49;
+}
+.col3{
+	width: 23%;
+	float: left;
+	text-align: center;
+	border-right: 1px solid #DE5A49;
+}
+.col4{
+	width: 23%;
+	float: left;
+	text-align: center;
+}
+.gap_above_below{
+	margin: 0.5em 0;
+}
+.gap_above_below_large{
+	margin: 1em 0;
+}
+.ilb{
+	display: inline-block;
+}
+input {
+	color: #444444;
+	border: 1px solid #777777;
+	height: 25px;
+	background: none;
+}
+textarea {
+	color: #444444;
+	border: 1px solid #777777;
+}
+select {
+	background: none;
+	color: #444444;
+	border: 1px solid #777777;
+	height: 25px;
+}
+.button{
+	font-size: 0.8em;
+}
+#button, #button_reset{
+	padding: 0 2em;
+	margin-right: 1em;
+}
+.wide_input{
+	width: 250px;
+}
+#kbd{
+	width: 290px;
+	float: right;
+	margin-top: 39px;
+}
+.keys{
+	width: 36px;
+	height: 27px;
+	float: left;
+	border-right: 1px solid #777777;
+	border-bottom: 1px solid #777777;
+	padding: 0px;
+	text-align: center;
+	cursor:pointer;
+	color: #DE5A49;
+}
+.keys:HOVER{
+	background-color: #FFFF00;
+}
+.tline {
+	border-top: 1px solid #777777;
+}
+.lline {
+	border-left: 1px solid #777777;
+}
+.num_results{
+	list-style-type: none !important;
+}
+.about:first-of-type{
+	margin-top: 2em;
+}
+.about{
+	text-align: justify;
+	font-size: 0.9em;
+	line-height: 1.8;
+	margin-top: 1em;
+	margin-left: 1em;	
+}
+.about_ul{
+	text-align: justify;
+	font-size: 0.9em;
+	line-height: 1.8;
+	margin-left: 3em;
+}
+.about_ul ul{
+	margin-left: 2em;
+}
+.about_ul li{
+	list-style-type: disc;
+}
+.about tr th{
+	color: #DE5A49;
+}
+.about tr td:first-of-type{
+	width: 15em;
+}
+.about tr td{
+	padding: 0.25em;
+}
+
+.sign{
+	font-family: 'Droid Sans';
+	text-align: right;
+	font-size: 0.8em;
+	line-height: 1.8;
+	margin-top: 1em;
+}
+.image_holder {
+	margin-top: 1em;
+	min-height: 65em;
+}
+.imggallery {
+	float: left;
+	margin: 1em 1em 0 0;
+	text-align: center;
+	width: 120px;
+}
+.imggallery img{
+	border: 7px solid #FFF;
+	box-shadow: 0 0 2px #999;
+}
+.imggallery img{
+	height: 125px;
+}
+.clr{
+	color: #DE5A49;
+}
+.clr a{
+	color: #DE5A49;
+	text-decoration: none;
+}
+.clr a:HOVER{
+	color: #DE5A49;
+	text-decoration: underline;
+}
+.feng{
+	font-family: 'Droid Sans';
+	font-size: 0.9em;
+}
+.fmar{
+	font-family: 'Siddhantaa';
+}
+.smll{
+	font-size: 0.9em;
+}
+.smll a, .noul a{
+	color: #444444;
+	text-decoration: none;
+}
+.smll a:HOVER, .noul a:HOVER{
+	text-decoration: underline;
+}
+.sriranga{
+	vertical-align: middle;
+	margin-right: 0.5em;
+	width: 25px;
+}
+.hleft{
+	border-bottom: 1px solid #AAA;
+	font-size: 0.9em;
+}
+.hright{
+	border-bottom: 1px solid #AAA;
+	font-size: 0.9em;
+}
+.mtop{
+	margin-top: 1em;
+}
+#lightbox{	position: absolute;	left: 0; width: 100%; z-index: 100; text-align: center; line-height: 0;}
+#lightbox img{ width: auto; height: auto;}
+#lightbox a img{ border: none; }
+
+#outerImageContainer{ position: relative; background-color: #fff; width: 250px; height: 250px; margin: 0 auto; }
+#imageContainer{ padding: 10px; }
+
+#loading{ position: absolute; top: 40%; left: 0%; height: 25%; width: 100%; text-align: center; line-height: 0; }
+#hoverNav{ position: absolute; top: 0; left: 0; height: 100%; width: 100%; z-index: 10; }
+#imageContainer>#hoverNav{ left: 0;}
+#hoverNav a{ outline: none;}
+
+#prevLink, #nextLink{ width: 49%; height: 100%; background-image: url(data:image/gif;base64,AAAA); /* Trick IE into showing hover */ display: block; }
+#prevLink { left: 0; float: left;}
+#nextLink { right: 0; float: right;}
+#prevLink:hover, #prevLink:visited:hover { background: url(../images/prevlabel.gif) left 15% no-repeat; }
+#nextLink:hover, #nextLink:visited:hover { background: url(../images/nextlabel.gif) right 15% no-repeat; }
+
+#imageDataContainer{ font: 0.8em Verdana, Helvetica, sans-serif; background-color: #fff; margin: 0 auto; line-height: 1.4em; overflow: auto; width: 100%	; }
+
+#imageData{	padding:0 10px; color: #666; }
+#imageData #imageDetails{ width: 70%; float: left; text-align: left;}	
+#imageData #caption{ font-weight: bold;	}
+#imageData #numberDisplay{ display: block; clear: left; padding-bottom: 1.0em;	}			
+#imageData #bottomNavClose{ width: 66px; float: right;  padding-bottom: 0.35em; outline: none;margin-bottom: 1em;}
+
+#overlay{ position: absolute; top: 0; left: 0; z-index: 90; width: 100%; height: 500px; background-color: #000; }
