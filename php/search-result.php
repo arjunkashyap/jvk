@@ -56,6 +56,7 @@ include("connect.php");
 
 $db = mysql_connect("localhost",$user,$password) or die("Not connected to database");
 $rs = mysql_select_db($database,$db) or die("No Database");
+mysql_query("set names utf8");
 
 $author=$_POST['author'];
 $title=$_POST['title'];
@@ -138,7 +139,6 @@ elseif($text!='')
 	$text=$text1;
 */
 
-/*
 	$query="SELECT * FROM
 				(SELECT * FROM
 					(SELECT * FROM
@@ -146,8 +146,10 @@ elseif($text!='')
 					AS tb1 WHERE authorname REGEXP '$author')
 				AS tb2 WHERE title REGEXP '$title')
 			AS tb4 WHERE year between $year1 and $year2 ORDER BY volume, issue, cur_page";
-*/
 			
+			echo $query;
+			
+/*
 	$query="SELECT * FROM
 				(SELECT * FROM
 					(SELECT * FROM
@@ -155,6 +157,7 @@ elseif($text!='')
 					AS tb1 WHERE authorname REGEXP '$author')
 				AS tb2 WHERE title REGEXP '$title')
 			AS tb3 WHERE year between $year1 and $year2 ORDER BY volume, issue, cur_page";
+*/
 }
 
 $result = mysql_query($query);

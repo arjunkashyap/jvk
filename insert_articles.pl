@@ -8,11 +8,15 @@ $pwd = $ARGV[3];
 use DBI();
 @ids=();
 
-open(IN,"jvk.xml") or die "can't open jvk.xml\n";
+open(IN,"<:utf8","jvk.xml") or die "can't open jvk.xml\n";
 
 my $dbh=DBI->connect("DBI:mysql:database=$db;host=$host","$usr","$pwd");
 
 #vnum, number, month, year, title, feature, authid, page, 
+
+$sth_enc=$dbh->prepare("set names utf8");
+$sth_enc->execute();
+$sth_enc->finish();
 
 $sth11=$dbh->prepare("CREATE TABLE article(title varchar(500), 
 authid varchar(200),
@@ -24,7 +28,7 @@ volume varchar(3),
 issue varchar(5),
 year int(4), 
 month varchar(20),
-titleid varchar(30), primary key(titleid)) ENGINE=MyISAM");
+titleid varchar(30), primary key(titleid)) ENGINE=MyISAM character set utf8 collate utf8_general_ci");
 $sth11->execute();
 $sth11->finish(); 
 

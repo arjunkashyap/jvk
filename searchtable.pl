@@ -9,6 +9,10 @@ use DBI();
 
 my $dbh=DBI->connect("DBI:mysql:database=$db;host=$host","$usr","$pwd");
 
+$sth_enc=$dbh->prepare("set names utf8");
+$sth_enc->execute();
+$sth_enc->finish();
+
 $sth11=$dbh->prepare("CREATE TABLE searchtable(title varchar(500),
 authid varchar(200),
 authorname varchar(1000),
@@ -17,9 +21,9 @@ text varchar(5000),
 page varchar(5),
 cur_page varchar(5),
 volume varchar(3),
-issue varchar(2),
+issue varchar(5),
 year int(4),
-month varchar(2),
+month varchar(20),
 titleid varchar(30)) character set utf8 collate utf8_general_ci");
 $sth11->execute();
 $sth11->finish();
@@ -53,6 +57,8 @@ while($ref=$sth1->fetchrow_hashref())
 	while($ref2=$sth2->fetchrow_hashref())
 	{
 		$text = $ref2->{'text'};
+		$text =~ s/'/\\'/g;
+		
 		$cur_page = $ref2->{'cur_page'};
 		
 		$sth4=$dbh->prepare("insert into searchtable values('$title','$authid','$authorname','$featid','$text','$page','$cur_page',

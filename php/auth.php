@@ -53,13 +53,13 @@ include("connect.php");
 
 $db = mysql_connect("localhost",$user,$password) or die("Not connected to database");
 $rs = mysql_select_db($database,$db) or die("No Database");
+mysql_query("set names utf8");
 
 $authid=$_GET['authid'];
 $authorname=$_GET['author'];
 
 echo "<h1 class=\"archive_heading\">$authorname त्यांचे लेख</h1>";
 echo "<ul class=\"archive_list\">";
-echo "<ul>";
 
 $query = "select * from article where authid like '%$authid%' order by volume, issue, page";
 $result = mysql_query($query);

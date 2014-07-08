@@ -48,15 +48,16 @@
 	</div>
 	<div class="textbody">
 		<h1 class="archive_heading"><span class="feng">Help</span></h1>
-		<p class="about feng"><span class="clr">A short desription on how to use the DVD</span><br />This DVD provides high-resolution scans of the entire collection of <span class="clr">Jivan Vikas,</span> which can be accessed by clicking on <span class="clr"><a href="volumes.php">Archive</a></span> link.
-			<ul class="feng about_ul">
-				<li>List of all Article titles sorted alphabetically (click on <span class="clr fmar"><a href="articles.php">लेख सूची</a></span> link)</li>
-				<li>Articles of a particular author (click on <span class="clr fmar"><a href="authors.php">लेखक सूची</a></span> link)</li>
-				<li>Table of Contents of each month (click on <span class="clr fmar"><a href="volumes.php">वर्ष, अंक</a></span> link and select a month)</li>
-				<li>To Search for an article or words (click on <span class="clr fmar"><a href="search.php">शोध</a></span> link)</li>
-				<li>Table of contents contain hyperlinks to articles, their authors and the year/month in which they appear. Clicking on a particular article title will open the article in DjVu format. Clicking on the author's name will display the list of articles of that particular author, and these articles can then be accessed by clicking on them. Clicking on the year/month will open the table of contents of that particular issue.</li>
-			</ul>
+		<p class="about feng">
+			<span class="clr">A short desription on how to use the DVD</span><br />This DVD provides high-resolution scans of the entire collection of <span class="clr">Jivan Vikas,</span> which can be accessed by clicking on <span class="clr"><a href="volumes.php">Archive</a></span> link.
 		</p>
+		<ul class="feng about_ul">
+			<li>List of all Article titles sorted alphabetically (click on <span class="clr fmar"><a href="articles.php">लेख सूची</a></span> link)</li>
+			<li>Articles of a particular author (click on <span class="clr fmar"><a href="authors.php">लेखक सूची</a></span> link)</li>
+			<li>Table of Contents of each month (click on <span class="clr fmar"><a href="volumes.php">वर्ष, अंक</a></span> link and select a month)</li>
+			<li>To Search for an article or words (click on <span class="clr fmar"><a href="search.php">शोध</a></span> link)</li>
+			<li>Table of contents contain hyperlinks to articles, their authors and the year/month in which they appear. Clicking on a particular article title will open the article in DjVu format. Clicking on the author's name will display the list of articles of that particular author, and these articles can then be accessed by clicking on them. Clicking on the year/month will open the table of contents of that particular issue.</li>
+		</ul>
 		<p class="about feng"><span class="clr">How to search for an article.</span><br />To search for an article click on the <span class="clr fmar"><a href="search.php">शोध</a></span> link and enter details such as title of the article <span class="clr fmar">(लेख)</span> and/or its author <span class="clr fmar">(लेखक)</span> and/or the period <span class="clr fmar">(वर्ष)</span> in which the article might have appeared. On clicking the <span class="clr fmar">शोध</span> button, search result pertaining to the set of values entered, will be displayed. After opening an article, user can search through it using the plug-in search facility. (Press 'F' and enter the search term. On clicking Find next, the search term, if found will be highlighted in the article.)</p>
 		<p class="about feng"><span class="clr">How to search for a word.</span><br />To search for a word or phrase in the entire archive click on the search link and enter the word in the <span class="clr fmar">'शब्द'</span> field. This facility can be used along with the facility provided to search for an article.</p>
 		<p class="about feng"><span class="clr">How to print a page.</span><br />Open the required page of the archive and click on File > Print. Using the Page Setup tab, printing can be customized. To print a portion of a page, export the page into a .BMP image file (Right click on the page and click on Export). The image can then be cropped  and printed using any image editing tool. To print a picture in the Pictures gallery, click on the thumbnail of the picture. After a full size image is obtained on the screen, click on the printer icon at the bottom of the image.</p>

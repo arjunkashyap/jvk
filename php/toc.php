@@ -53,6 +53,7 @@ include("connect.php");
 
 $db = mysql_connect("localhost",$user,$password) or die("Not connected to database");
 $rs = mysql_select_db($database,$db) or die("No Database");
+mysql_query("set names utf8");
 
 $volume=$_GET['vol'];
 $issue=$_GET['issue'];
@@ -65,7 +66,6 @@ $month=$row_aux['month'];
 
 echo "<h1 class=\"archive_heading\">".engtohin_month($month)."&nbsp;".engtohin_issue($year)."&nbsp;&nbsp;|&nbsp;&nbsp;वर्ष&nbsp;".engtohin_issue(intval($volume)).", अंक&nbsp;".engtohin_issue(intval($issue))."</h1>";
 echo "<ul class=\"archive_list\">";
-echo "<ul>";
 
 $query = "select * from article where volume='$volume' and issue='$issue' order by page, page_end";
 $result = mysql_query($query);

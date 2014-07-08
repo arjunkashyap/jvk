@@ -9,6 +9,10 @@ use DBI();
 
 my $dbh=DBI->connect("DBI:mysql:database=$db;host=$host","$usr","$pwd");
 
+$sth_enc=$dbh->prepare("set names utf8");
+$sth_enc->execute();
+$sth_enc->finish();
+
 $sth11=$dbh->prepare("CREATE TABLE testocr(volume varchar(3),
 issue varchar(6),
 cur_page varchar(10),
@@ -45,7 +49,13 @@ for($i1=0;$i1<@volumes;$i1++)
 				
 				$cur_page =~ s/\.txt//g;
 				$line=<DATA>;
+				$line =~ s///g;
+				$line =~ s///g;
 				$line =~ s///g;
+				$line =~ s/[[:punct:]]/ /g;
+				$line =~ s/  / /g;
+				$line =~ s/  / /g;
+				$line =~ s/  / /g;
 				
 				$sth1=$dbh->prepare("insert into testocr values ('$vol','$iss','$cur_page','$line')");
 				$sth1->execute();

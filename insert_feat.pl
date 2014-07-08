@@ -7,11 +7,15 @@ $pwd = $ARGV[3];
 
 use DBI();
 
-open(IN,"jvk.xml") or die "can't open jvk.xml\n";
+open(IN,"<:utf8","jvk.xml") or die "can't open jvk.xml\n";
 
 my $dbh=DBI->connect("DBI:mysql:database=$db;host=$host","$usr","$pwd");
 
-$sth11=$dbh->prepare("CREATE TABLE feature(feat_name varchar(200), featid int(6) auto_increment, primary key(featid))auto_increment=10001 ENGINE=MyISAM;");
+$sth_enc=$dbh->prepare("set names utf8");
+$sth_enc->execute();
+$sth_enc->finish();
+
+$sth11=$dbh->prepare("CREATE TABLE feature(feat_name varchar(200), featid int(6) auto_increment, primary key(featid))auto_increment=10001 ENGINE=MyISAM character set utf8 collate utf8_general_ci;");
 $sth11->execute();
 $sth11->finish(); 
 
