@@ -13,7 +13,7 @@
 
 <body>
 <div id="loader"><img src="images/loading.gif" alt="Loader"/></div>
-<div class="page" id="page">
+<div class="page">
 	<div id="headnav">
 		<ul>
 			<li><a href="contact.html">Contact</a></li>

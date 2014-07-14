@@ -91,9 +91,7 @@ for($i1=1;$i1<=$num_rows1;$i1++)
 			$issue=$row['issue'];
 			$year=$row['year'];
 			$month=$row['month'];
-			
-			$title = preg_replace("/\&/", "&amp;", $title);
-			
+						
 			$title1=addslashes($title);
 			
 			$str .= "<li>";

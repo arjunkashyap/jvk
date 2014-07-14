@@ -12,7 +12,7 @@ $year1=$_POST['year1'];
 $year2=$_POST['year2'];
 $text=$_POST['text'];
 
-$author = preg_replace("/[[:punct:]]+/", " ", $author);
+$author = preg_replace("/[,\-]+/", " ", $author);
 $author = preg_replace("/[\t]+/", " ", $author);
 $author = preg_replace("/[ ]+/", " ", $author);
 $author = preg_replace("/^ +/", "", $author);
@@ -20,7 +20,7 @@ $author = preg_replace("/ +$/", "", $author);
 $author = preg_replace("/  /", " ", $author);
 $author = preg_replace("/  /", " ", $author);
 
-$title = preg_replace("/[[:punct:]]+/", " ", $title);
+$title = preg_replace("/[,\-]+/", " ", $title);
 $title = preg_replace("/[\t]+/", " ", $title);
 $title = preg_replace("/[ ]+/", " ", $title);
 $title = preg_replace("/^ +/", "", $title);
@@ -28,7 +28,7 @@ $title = preg_replace("/ +$/", "", $title);
 $title = preg_replace("/  /", " ", $title);
 $title = preg_replace("/  /", " ", $title);
 
-$text = preg_replace("/[[:punct:]]+/", " ", $text);
+$text = preg_replace("/[,\-]+/", " ", $text);
 $text = preg_replace("/[\t]+/", " ", $text);
 $text = preg_replace("/[ ]+/", " ", $text);
 $text = preg_replace("/^ +/", "", $text);
@@ -146,9 +146,7 @@ if($num_results > 0)
 		{
 			$cur_page = $row1['cur_page'];
 		}
-		
-		$title = preg_replace("/\&/", "&amp;", $title);
-		
+				
 		$title1=addslashes($title);
 	
 		if ((strcmp($id, $titleid)) != 0)

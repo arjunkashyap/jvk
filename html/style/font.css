@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Siddhantaa';
+  src: url('siddhanta.ttf');
+}
+.authorspan{
+	color: #DE5A49;
+}
+.fmar{
+	font-family: Siddhantaa;
+}
