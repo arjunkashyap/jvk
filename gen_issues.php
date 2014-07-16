@@ -24,6 +24,7 @@ for($i1=1;$i1<=$num_rows1;$i1++)
 	<title>Jivan Vikas</title>
 	<link href=\"style/reset.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" />
 	<link href=\"style/indexstyle.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" />
+	<link rel=\"shortcut icon\" type=\"image/ico\" href=\"images/favicon.ico\" />
 
 	<script type=\"text/javascript\" src=\"js/jquery-1.9.1.js\"></script>
 	<script type=\"text/javascript\" src=\"js/jquery-ui.js\"></script>
