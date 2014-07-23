@@ -81,12 +81,13 @@ for($ic=0;$ic<sizeof($titles);$ic++)
 }
 for($ic=0;$ic<sizeof($texts);$ic++)
 {
-	$textFilter .= "+" . $texts[$ic] . " ";
+	$textFilter .= "+" . $texts[$ic] . "* ";
 	$textSearchBox .= "|" . $texts[$ic];
 }
 
 $authorFilter = preg_replace("/^and /", "", $authorFilter);
 $titleFilter = preg_replace("/^and /", "", $titleFilter);
+$titleFilter = preg_replace("/ $/", "", $titleFilter);
 $textSearchBox = preg_replace("/^\|/", "", $textSearchBox);
 
 if($text=='')
